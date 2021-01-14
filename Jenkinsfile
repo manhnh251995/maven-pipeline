@@ -1,7 +1,7 @@
 pipeline {
     agent none
     options {
-        skipStagesAfterUnstable()
+        //skipStagesAfterUnstable()
     }
     environment {
         BUILD_TAG = 'test'
