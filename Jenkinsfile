@@ -1,8 +1,8 @@
 pipeline {
     agent none
-    options {
+    //options {
         //skipStagesAfterUnstable()
-    }
+    //}
     environment {
         BUILD_TAG = 'test'
         REGISTRY_PASS = credentials("docker-registry-pass")
