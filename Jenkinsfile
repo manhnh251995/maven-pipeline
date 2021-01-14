@@ -7,6 +7,7 @@ pipeline {
         BUILD_TAG = 'test'
         REGISTRY_PASS = credentials("docker-registry-pass")
         IMAGE = "maven-project"
+        NAME = "MANHNH"
     }
     stages {
         stage("work dir pull git repo") {
