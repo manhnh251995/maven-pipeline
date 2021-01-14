@@ -21,7 +21,7 @@ pipeline {
             agent { label 'master' }
             steps {
                 sh'''
-                docker run -v ./java-app:/app -v /root/.m2/:/root/.m2 -w /app maven:3-alpine mvn clean package
+                docker run -v java-app:/app -v /root/.m2/:/root/.m2 -w /app maven:3-alpine mvn clean package
                 '''
             }
         }
