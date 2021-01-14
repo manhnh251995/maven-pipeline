@@ -10,7 +10,7 @@ pipeline {
             agent { label 'master' }
             steps {
                 sh '''
-                ls -la /tmp/edu_jenkins/pipeline6
+                pwd && ls -la ./ 
                 '''
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             agent { label 'master' }
             steps {
                 sh'''
-                docker run -v /tmp/edu_jenkins/pipeline6/java-app:/app -v /root/.m2/:/root/.m2 -w /app maven:3-alpine mvn clean package
+                docker run -v ./java-app:/app -v /root/.m2/:/root/.m2 -w /app maven:3-alpine mvn clean package
                 '''
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             agent {label 'master'}
             steps {
                 sh'''
-                cd /tmp/edu_jenkins/pipeline6/ && ./build.sh
+                ./build.sh
                 '''
             }
         }
@@ -34,7 +34,7 @@ pipeline {
             agent {label 'master'}
             steps {
                 sh'''
-                cd /tmp/edu_jenkins/pipeline6/ && ./push.sh
+                ./push.sh
                 '''
             }
         }
