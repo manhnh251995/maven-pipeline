@@ -21,7 +21,7 @@ pipeline {
             agent { label 'master' }
             steps {
                 sh'''
-                echo $$WORKSPACE && docker run -v /var/lib/jenkins/workspace/pipelinemaven/java-app:/app -v /root/.m2/:/root/.m2 -w /app maven:3-alpine mvn clean package
+                docker run -v /var/lib/jenkins/workspace/pipelinemaven/java-app:/app -v /root/.m2/:/root/.m2 -w /app maven:3-alpine mvn clean package
                 '''
             }
         }
